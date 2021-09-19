@@ -19,7 +19,7 @@ Clone the git repostiory
 
     git clone https://github.com/developer-akash/angular-assesment.git
 
-Checkout the development branch
+Checkout the master branch
 
     cd angular-assesment
     git fetch && git checkout master
