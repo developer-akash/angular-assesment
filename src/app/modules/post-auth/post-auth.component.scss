@@ -1,0 +1,12 @@
+@import "src/assets/scss/variables";
+@import "src/assets/scss/utilities";
+
+ng-sidebar-container {
+  height: calc(100vh - #{$spacer - 0.0625rem}* 4.5);
+  margin-top: ($spacer - 0.0625rem) * 4.5;
+  width: 100vw;
+
+  .ng-sidebar {
+    z-index: -1;
+  }
+}

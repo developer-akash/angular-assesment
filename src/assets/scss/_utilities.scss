@@ -1,0 +1,184 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/breakpoints";
+
+.height {
+  &-35 {
+    height: 35px;
+  }
+}
+
+// font-weight
+.font-weight {
+  &-300 {
+    font-weight: 300 !important;
+  }
+
+  &-700 {
+    font-weight: 700 !important;
+  }
+}
+
+.elipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+}
+
+// font-size
+.font-size {
+  &-xs {
+    font-size: $font-size-base - 0.1875rem; // 11px
+  }
+
+  &-sm {
+    font-size: $font-size-base/1.16; // 12px
+  }
+
+  &-md {
+    font-size: $font-size-base !important; // 14px
+  }
+
+  &-lg {
+    font-size: $font-size-base + 0.125rem !important; // 16px
+  }
+
+  &-xl {
+    font-size: $font-size-base + 0.25rem !important; // 18px
+  }
+}
+
+// modal size
+.modal {
+  &-xl {
+    max-width: 1200px;
+  }
+
+  &-lg {
+    max-width: 992px;
+  }
+
+  &-md {
+    max-width: 768px;
+  }
+
+  &-sm {
+    max-width: 576px;
+  }
+
+  &-xs {
+    max-width: 360px;
+  }
+}
+
+.background-none {
+  background: none;
+}
+
+// cursor
+.cursor {
+  &-inherit {
+    cursor: inherit !important;
+  }
+
+  &-pointer {
+    cursor: pointer !important;
+  }
+}
+
+.bg {
+  &-primary {
+    background: theme-color(primary) !important;
+  }
+
+  &-danger {
+    background: theme-color(danger);
+  }
+
+  &-black {
+    background: theme-color('black');
+  }
+
+  &-white {
+    background-color: theme-color('white') !important;
+  }
+}
+
+.text {
+  &-dark {
+    color: theme-color('black') !important;
+  }
+
+  &-danger {
+    color: theme-color(danger) !important;
+  }
+
+  &-white {
+    color: theme-color('white') !important;
+  }
+
+  &-ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  &-primary {
+    color: theme-color(primary) !important;
+  }
+}
+
+.border {
+  border-color: theme-color(lighter) !important;
+}
+
+.cursor {
+  &-pointor {
+    cursor: pointer;
+  }
+}
+
+.table.no-border tr td,
+.table.no-border tr th {
+  border-width: 0;
+}
+
+.custom-shadow {
+  &-1 {
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.02);
+  }
+
+  &-2 {
+    box-shadow: 0 7px 24px 0 rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* Scrollbar styling start */
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  // box-shadow: inset 0 0 1px grey;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(theme-color(lighter), 1); // $white;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: theme-color(medium);
+}
+
+.introjs-tooltipReferenceLayer {
+  z-index: 99999999 !important;
+}
+/* Scrollbar styling end */

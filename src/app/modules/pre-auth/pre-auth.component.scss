@@ -1,0 +1,15 @@
+@import "src/assets/scss/variables";
+@import "src/assets/scss/utilities";
+
+.pre-auth-cover {
+  background: rgba(theme-color(lighter), 0.4);
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.wrapper {
+  min-height: 100vh;
+  margin-bottom: -52px;
+}

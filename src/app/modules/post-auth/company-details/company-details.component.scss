@@ -1,0 +1,36 @@
+@import "src/assets/scss/variables";
+@import "src/assets/scss/utilities";
+
+.details-container {
+    height: calc(100vh - 68px - 56px);
+    padding: 15px;
+}
+::ng-deep.table {
+    color: theme-color(dark);
+    thead {
+        tr {
+            th {
+                font-weight: 500;
+                font-size: $font-size-base - 0.125rem;
+                &:last-child {
+                    width: 75px;
+                }
+            }
+        }
+    }
+}
+::ng-deep.dropdown-menu {
+    padding: 0;
+    left: -138px !important;
+    li {
+        color: theme-color(medium);
+        padding: 0 10px;
+        background: theme-color(lightest);
+        margin: 0;
+        line-height: 26px;
+        border-bottom: 1px solid theme-color(light);
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}

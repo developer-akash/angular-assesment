@@ -1,0 +1,79 @@
+<!-- Modal Header Section Start -->
+<div class="modal-header border-0 pb-0">
+    <h3 class="font-weight-600 pl-2">
+        {{modalType === 'add' ? 'Add person details' : 'Edit person details'}}
+    </h3>
+    <button class="btn" (click)="modalClose()">
+        <img src="assets/img/Close-X.png" />
+    </button>
+</div>
+<!-- Modal Header Section End -->
+
+<!-- Modal Body Section Start -->
+<div class="modal-body">
+    <form [formGroup]="personDetailsForm" (ngSubmit)="onSubmit(personDetailsForm.value)">
+        <div class="row mt-4">
+            <div class="col-sm-12">
+                <label for="email font-weight-300">Name<span class="text-danger"> *</span></label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend height-35">
+                        <span class="input-group-text rounded-left" id="basic-addon1">
+                            <fa size="sm" class="text-white" name="user"></fa>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control border-left-0 height-35" formControlName="name"
+                        aria-describedby="name" placeholder="Please enter your name">
+                    <div *ngIf="personDetailsF.name.status === 'INVALID' && personDetailsF.name.dirty"
+                        class="invalid-feedback">
+                        <div *ngIf="personDetailsF.name.errors.required">Name is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <label for="email font-weight-300">Country<span class="text-danger"> *</span></label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend height-35">
+                        <span class="input-group-text rounded-left" id="basic-addon1">
+                            <fa size="sm" class="text-white" name="globe"></fa>
+                        </span>
+                    </div>
+                    <select formControlName="country" class="form-control border-0">
+                        <option value="">Select your country</option>
+                        <option *ngFor="let country of countryList" [value]="country.code">
+                            {{country.name}}
+                        </option>
+                    </select>
+                    <div *ngIf="personDetailsF.country.status === 'INVALID' && personDetailsF.country.dirty"
+                        class="invalid-feedback">
+                        <div *ngIf="personDetailsF.country.errors.required">Country is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <label for="email font-weight-300">Phone<span class="text-danger"> *</span></label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend height-35">
+                        <span class="input-group-text rounded-left" id="basic-addon1">
+                            <fa size="sm" class="text-white" name="phone"></fa>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control border-left-0 height-35" formControlName="phone"
+                        aria-describedby="phone" placeholder="Please enter your phone no">
+                    <div *ngIf="personDetailsF.phone.status === 'INVALID' && personDetailsF.phone.dirty"
+                        class="invalid-feedback">
+                        <div *ngIf="personDetailsF.phone.errors.required">Phone Number is required</div>
+                        <div *ngIf="personDetailsF.phone.errors.pattern">Phone Number must be numeric</div>
+                        <div *ngIf="personDetailsF.phone.errors.minlength">Phone no must be a minimum of 10 numbers
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 mt-1">
+                <button type="submit" class="btn btn-primary btn-md w-100" aria-label="Add" [disabled]="personDetailsForm.invalid">
+                    Submit
+                </button>
+            </div>
+
+        </div>
+    </form>
+</div>

@@ -1,0 +1,89 @@
+<div class="details-container">
+    <h2 class="mb-4">Company Details</h2>
+    <div class="card properties-card mt-4">
+        <div class="card-body">
+            <div class="row pb-2">
+                <div class="col-sm-9">
+                    <h3 *ngIf="selectedCompany">{{selectedCompany.name}}</h3>
+                    <p *ngIf="selectedCompany">{{selectedCompany.description}}</p>
+                </div>
+                <div class="col-sm-3 d-flex align-items-center justify-content-end">
+                    <button class="btn btn-outline-primary btn-md d-flex align-items-center" (click)="showPersonDetailsModal('add')">
+                        Add contact details
+                        <fa size="sm" class="pl-3" name="plus"></fa>
+                    </button>
+                </div>
+            </div>
+            <div class="properties-table">
+                <div class="shadow-sm border border-grey rounded">
+                    <table [hidden]="contactsList.length === 0" datatable class="hover table no-border table-style-1"
+                        [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+                        <thead class="mb-1 px-2">
+                            <tr>
+                                <th scope="col" class="">Name</th>
+                                <th scope="col" class="">Country</th>
+                                <th scope="col" class="">Phone</th>
+                                <th scope="col" class=""></th>
+                            </tr>
+                        </thead>
+                        <tbody class="px-2">
+                            <tr *ngFor="let contact of contactsList; let i = index">
+                                <td>
+                                    <div class="shadow-sm rounded p-1 pl-2 bg-white">
+                                        {{contact.name}}
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="shadow-sm rounded p-1 pl-2 bg-white">
+                                        {{contact.country}}
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="shadow-sm rounded p-1 pl-2 bg-white">
+                                        {{contact.phone}}
+                                    </div>
+                                </td>
+
+                                <td class="pl-4 pr-0 d-flex align-items-center">
+                                    <div>
+                                        <div class="btn-group" dropdown #dropdown="bs-dropdown" placement="left" dropup="true">
+                                            <button id="button-basic" dropdownToggle type="button" aria-controls="dropdown-basic"
+                                                class="three-dots border-0">
+                                                <svg-icon src="assets/svg/more_vert-24px.svg"></svg-icon>
+                                            </button>
+                                            <ul id="dropdown-basic-dot" *dropdownMenu class="dropdown-menu custom-shadow-2"
+                                                role="menu" aria-labelledby="button-basic">
+                                                <li role="menuitem" class="cursor-pointer" (click)="showPersonDetailsModal('edit', contact)">
+                                                    Edit
+                                                </li>
+                                                <li role="menuitem" class="cursor-pointer" (click)="showDeleteTemplate(deleteTemplate, contact.name, i)">
+                                                    Delete
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p [hidden]="contactsList.length > 0" class="text-center my-4">{{infoMessage}}</p>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+</div>
+
+<!-- Template for deleting company's contacted person details -->
+<ng-template #deleteTemplate>
+    <div class="modal-header">
+        <h3>Are you sure</h3>
+    </div>
+    <div class="modal-body text-center">
+        <p class="mb-3">Are you sure that you want to delete {{selectedPerson}}?</p>
+        <button type="button" class="btn btn-primary btn-md mr-3" (click)="confirm()">Confirm</button>
+        <button type="button" class="btn btn-secondary btn-md" (click)="decline()">Cancel</button>
+    </div>
+</ng-template>

@@ -1,0 +1,23 @@
+@import "src/assets/scss/variables";
+@import "src/assets/scss/utilities";
+
+.header {
+  height: ($spacer - 0.0625rem) * 4.5;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  background: theme-color("white");
+  box-shadow: 0px 5px 15px rgba(theme-color(dark), 0.05);
+  .logo {
+    font-size: $font-size-base + 0.625rem;
+    @extend .font-weight-700;
+    color: theme-color(medium);
+  }
+  .user {
+    img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+    }
+  }
+}

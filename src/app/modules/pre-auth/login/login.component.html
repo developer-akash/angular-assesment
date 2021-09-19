@@ -1,0 +1,22 @@
+<div class="loginFormOuter p-4 rounded">
+  <h2 class="m-0 mb-4 text-center">Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+    <label for="email font-weight-300">Email<span class="text-danger"> *</span></label>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend height-35">
+        <span class="input-group-text rounded-left" id="basic-addon1">
+          <fa size="sm" class="text-white" name="user"></fa>
+        </span>
+      </div>
+      <input type="email" class="form-control border-left-0 height-35" formControlName="email"
+        aria-describedby="email" placeholder="Email">
+      <div *ngIf="loginF.email.status === 'INVALID' && loginF.email.dirty" class="invalid-feedback">
+        <div *ngIf="loginF.email.errors.required">Email is required</div>
+        <div *ngIf="loginF.email.errors.email">Email must be a valid email address</div>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="loginForm.invalid"
+      class="btn btn-lg btn-block btn-black bg-black">Login</button>
+  </form>
+</div>

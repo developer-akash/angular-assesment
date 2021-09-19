@@ -1,0 +1,20 @@
+@import "src/assets/scss/variables";
+@import "src/assets/scss/utilities";
+
+.footer-border-top {
+    border-top: 1px solid rgba(theme-color("white"), .15) !important;
+    box-shadow: 0px -10px 40px rgba(theme-color(dark), 0.05);
+    background: theme-color("white");
+
+    ul {
+        height: 56px;
+
+        li {
+            margin-left: 30px;
+
+            a {
+                color: theme-color(dark);
+            }
+        }
+    }
+}

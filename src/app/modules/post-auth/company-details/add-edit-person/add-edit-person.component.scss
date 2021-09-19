@@ -1,0 +1,10 @@
+@import "src/assets/scss/variables";
+@import "src/assets/scss/utilities";
+
+
+.modal-body {
+    padding: 0 40px 30px 40px;
+    .form-control {
+        border: 1px solid rgba(theme-color(secondary), 0.2) !important;
+    }
+}

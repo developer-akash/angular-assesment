@@ -1,0 +1,233 @@
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    line-height: 1.4;
+    color: theme-color(dark)
+}
+
+h1,
+.h1 {
+    @include media-breakpoint-down(sm) {
+        font-size: $h1-font-size/1.75;
+    }
+}
+
+h2,
+.h2 {
+    @include media-breakpoint-down(sm) {
+        font-size: $h2-font-size/1.75;
+    }
+}
+
+h3,
+.h3 {
+    @include media-breakpoint-down(sm) {
+        font-size: $h3-font-size/1.50;
+    }
+}
+
+h4,
+.h4 {
+    @include media-breakpoint-down(sm) {
+        font-size: $h4-font-size/1.15;
+    }
+}
+
+h5,
+.h5 {
+    font-size: $h5-font-size;
+
+    @include media-breakpoint-down(sm) {
+        font-size: $h4-font-size/1.10;
+    }
+}
+
+h6,
+.h6 {
+    font-size: $h6-font-size;
+
+    @include media-breakpoint-down(sm) {
+        font-size: $h6-font-size/1.10;
+    }
+}
+
+ul {
+    padding: 0;
+
+    li {
+        list-style-type: none;
+    }
+}
+
+a {
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+body {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    font-weight: $font-weight-base;
+    line-height: $line-height-base;
+    color: theme-color(dark);
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    @include media-breakpoint-down(sm) {
+        font-size: $font-size-base/1.05;
+    }
+}
+
+button {
+    outline: 0;
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+// container
+.container {
+    @include media-breakpoint-down(lg) {
+        max-width: 1140px;
+    }
+}
+
+.container-sm {
+    max-width: 768px;
+    padding-right: $spacer;
+    padding-left: $spacer;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+// btn
+.btn {
+    border-radius: 32px;
+    text-transform: uppercase;
+    @extend .font-weight-700;
+
+    &-link {
+
+        &:hover,
+        &:focus,
+        &.focus {
+            text-decoration: none;
+        }
+    }
+
+    &-icon-sm-rounded {
+        border-radius: 24px;
+        width: 26px;
+        height: 26px;
+        border: none;
+    }
+
+    &-outline-primary {
+        fill: theme-color(primary);
+        &:hover {
+            fill: theme-color('white');
+            color: theme-color('white');
+        }
+        &:disabled {
+            color: theme-color(primary-100);
+            border-color: theme-color(primary-100);
+        }
+
+        &:not(:disabled):not(.disabled):active {
+            color: var(--white);
+        }
+    }
+}
+
+.form-control {
+    height: 2.25rem;
+    border-radius: 3px;
+    color: theme-color(dark);
+    font-weight: 400;
+
+    &:focus {
+        border-color: theme-color(primary);
+    }
+
+    &.danger {
+        border-color: theme-color(danger);
+
+        &::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: theme-color(danger);
+            opacity: 1;
+            /* Firefox */
+        }
+
+        &:-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: theme-color(danger);
+        }
+
+        &::-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: theme-color(danger);
+        }
+    }
+
+    &:disabled {
+        color: theme-color(medium);
+        border: 1px solid theme-color(lighter);
+        background-color: theme-color(lightest) !important;
+    }
+}
+
+select {
+    -moz-appearance: none;
+    /* Firefox */
+    -webkit-appearance: none;
+    /* Safari and Chrome no-repeat right $spacer center */
+    appearance: none;
+    background-image: url("/assets/svg/small-triangle-down-new.svg") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 1rem center !important;
+    background-size: 10px auto !important;
+
+    &.danger {
+        color: theme-color(danger);
+        background-image: url("/assets/svg/small-triangle-down-red.svg") !important;
+    }
+}
+
+.input-group-text {
+    border: 1px solid theme-color(lighter);
+    background-color: theme-color(dark) !important;
+}
+
+.input-group {
+    .disabled {
+        .input-group-text {
+            border: 1px solid theme-color(lighter);
+            background-color: theme-color(lightest) !important;
+        }
+    }
+
+    .danger {
+        .input-group-text {
+            color: theme-color(danger);
+            border: 1px solid theme-color(danger);
+        }
+    }
+}

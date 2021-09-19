@@ -1,0 +1,10 @@
+<header class="header col-sm d-flex align-items-center justify-content-between px-3">
+    <div class="logo cursor-pointer" routerLink="dashboard">
+        AXY LTD
+    </div>
+    <div class="user d-flex align-items-center">
+        <img class="mr-2" src="assets/img/image-placeholder.png" alt="user image" />
+        {{userDetails ? userDetails.firstName + ' ' + userDetails.lastName : ''}}
+        <fa size="lg" class="ml-2 cursor-pointer" name="sign-out" (click)="logout()"></fa>
+    </div>
+</header>
